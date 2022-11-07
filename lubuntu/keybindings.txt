@@ -1,0 +1,39 @@
+# Add the following code to the file ~/.config/openbox/rc.xml
+# Upon doing a clear lubuntu install this file will not exist.
+# It should be copied from cp /etc/xdg/openbox/rc.xml to the path above.
+
+ <keybind key="W-Up">        # Maximize
+    <action name="ToggleMaximize"/>
+  </keybind>
+  <keybind key="W-Down">      # Minimize
+    <action name="Iconify"/>
+  </keybind>
+
+  <!--
+        # HalfRightScreen
+  -->
+  <keybind key="W-Right">
+    <action name="UnmaximizeFull"/>
+    <action name="MoveResizeTo">
+      <x>-0</x>
+      <y>0</y>
+      <height>100%</height>
+      <width>50%</width>
+    </action>
+  </keybind>
+
+  <!--
+        # HalfLeftScreen
+  -->
+  <keybind key="W-Left">
+    <action name="UnmaximizeFull"/>
+    <action name="MoveResizeTo">
+      <x>0</x>
+      <y>0</y>
+      <height>100%</height>
+      <width>50%</width>
+    </action>
+  </keybind>
+
+
+# After this is done run "openbox --reconfigure"
