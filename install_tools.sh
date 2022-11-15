@@ -8,3 +8,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # Install tools necessary for YouCompleteMe vim extension to work.
 sudo apt install build-essential cmake vim-nox python3-dev
 sudo apt install mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
+
+# Pip for installing python packages
+sudo apt install python3-pip
