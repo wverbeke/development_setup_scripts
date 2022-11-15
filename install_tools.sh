@@ -11,3 +11,6 @@ sudo apt install mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
 
 # Pip for installing python packages
 sudo apt install python3-pip
+
+# GTK (gnome) vim to have access to the clipboard when yanking
+sudo apt install vim-gtk
