@@ -42,3 +42,7 @@ call plug#end()
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:ycm_python_interpreter_path = '/usr/bin/python'
+
+"Optional to disable error checking in YCM, which might be necessary when
+"writing c++ code"
+"let g:ycm_show_diagnostics_ui = 0"
