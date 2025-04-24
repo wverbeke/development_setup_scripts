@@ -1,0 +1,82 @@
+# Install Brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/${USER}/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Install iTerm 2
+# -- Manual --
+
+# Keyboard settings
+# Make sure to set to US and not US international PC. Shift-6 (used in vim) will behave strangely under the latter configuration.
+
+# Install other needed packages
+brew install wget
+
+# Add ssh keys
+ssh-keygen
+# Copy ssh keys to all necessary vms and servers
+
+# Download a nice color scheme for iTerm
+wget https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/cyberpunk.itermcolors
+# -- Manual apply --
+
+# Set the screenshot output directly correctly
+# Press Shift + Command + 5 and set the storage location
+
+# Install Macvim. The native vim on Mac does not support the extensions we want like YCM.
+brew install macvim # MacVim should be the default vim now
+# On linux install gnu-vim: sudo apt install vim-gtk
+
+# Install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+wget https://raw.githubusercontent.com/wverbeke/development_setup_scripts/master/vimrc
+mv vimrc ~/.vimrc
+
+# Install requirements for YCM vim plugin
+brew install cmake python go nodejs
+
+# Make sure mouse scroll works in macvim
+# add "set mouse=a" to vimrc
+# add "map <ScrollWheelDown> j"
+# add "map <ScrollWheelUp> k"
+
+# Ensure backspace properly works in vim
+# add "sudo find . -maxdepth 1 -name "*string*" -print" to .vimrc
+
+# Set terminal to vi mode by adding the following to .bashrc:
+# set -o vi
+# Now the backspace option is broken when copy-pasting, just like in vim itself.
+# Fix this by adding the following to .zprofile (if using zshell)
+# bindkey -v
+# bindkey "^H" backward-delete-char
+# bindkey "^?" backward-delete-char
+
+
+# Install Teams
+# -- Manual --
+
+# Add bash_profile loading to ~/.zprofile
+#if [ -f ~/.bash_profile ]; then 
+#    . ~/.bash_profile;
+#fi
+
+# Set terminal in vi model by 
+
+
+# Disable notifications in iTerm2
+# -- Manual --
+
+# Install noTunes to prevent apple music popus.
+brew install --cask notunes #https://github.com/tombonez/noTunes
+# Then manually enable it
+# 1. Navigate to System Settings
+# 2. Select General
+# 3. Select Login Items
+# 4. Click the + under Open at Login and select noTunes
+
+
+# Install sshfs for mounting
+# Go to https://osxfuse.github.io/ and install macfuse and sshfs
+# Set up mounting script
+
