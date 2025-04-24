@@ -1,0 +1,58 @@
+filetype plugin indent on
+"Show existing tab with 4 spaces width
+set tabstop=4
+
+"When indenting with '>', use 4 spaces width
+set shiftwidth=4
+
+"On pressing tab, insert 4 spaces
+set expandtab
+
+"Make sure the clipboard of vim is connected to the terminal to be able to
+"yank."
+"set clipboard^=unnamed
+
+"A function to install You Complete Me package
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --all
+  endif
+endfunction
+
+"Fix annoying mac vim backspace behavior"
+set backspace=indent,eol,start
+
+
+
+"Add vim plugins."
+call plug#begin('~/.vim/plugged/')
+
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer' }"
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
+"Close the plugin addition."
+call plug#end()
+
+"Set the airline theme."
+let g:airline_theme='bubblegum'
+let g:airline#extensions#tabline#enabled = 1
+let g:ycm_python_interpreter_path = '/usr/bin/python'
+
+"Avoid super annoying error messages when writing c++"
+let g:ycm_show_diagnostics_ui = 0
+
+"Optional to disable error checking in YCM, which might be necessary when
+"writing c++ code"
+"let g:ycm_show_diagnostics_ui = 0"
+
+set mouse=a
+map <ScrollWheelDown> j
+map <ScrollWheelUp> k
